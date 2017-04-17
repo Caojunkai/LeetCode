@@ -1,5 +1,7 @@
 /* Created by Fitz on 2017/3/15 */
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,6 +13,7 @@ public class TwoSum {
         int[] result = twoSum.solution(numbers,target);
         System.out.println(result[0]);
         System.out.println(result[1]);
+        Deque<Integer> deque = new ArrayDeque<Integer>();
     }
 
     public int[] solution(int[] numbers, int target){
