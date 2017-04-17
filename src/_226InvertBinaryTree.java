@@ -2,7 +2,7 @@
 
 import util.TreeNode;
 
-public class InvertBinaryTree {
+public class _226InvertBinaryTree {
     public static void main(String[] args) {
         TreeNode treeNode_1 = new TreeNode(1);
         TreeNode treeNode_2 = new TreeNode(2);

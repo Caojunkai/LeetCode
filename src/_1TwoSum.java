@@ -5,12 +5,12 @@ import java.util.Deque;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TwoSum {
+public class _1TwoSum {
     public static void main(String[] args) {
         int[] numbers = new int[]{2,7,11,15};
         int target = 22;
-        TwoSum twoSum = new TwoSum();
-        int[] result = twoSum.solution(numbers,target);
+        _1TwoSum twoSum1 = new _1TwoSum();
+        int[] result = twoSum1.solution(numbers,target);
         System.out.println(result[0]);
         System.out.println(result[1]);
         Deque<Integer> deque = new ArrayDeque<Integer>();

@@ -3,9 +3,9 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class LongestSubstringWithoutRepeatCharacter {
+public class _3LongestSubstringWithoutRepeatCharacter {
     public static void main(String[] args) {
-        LongestSubstringWithoutRepeatCharacter lswrc = new LongestSubstringWithoutRepeatCharacter();
+        _3LongestSubstringWithoutRepeatCharacter lswrc = new _3LongestSubstringWithoutRepeatCharacter();
         String s = "asdaswdsassdasdasdasdqwqeqweqwe";
         int a = lswrc.solution(s);
         System.out.println(a);

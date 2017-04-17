@@ -1,6 +1,7 @@
 /* Created by Fitz on 2017/3/21 */
 
 import util.DListNode;
+import util.ListNode;
 
 public class ReverseList {
     //    1->2->3->null  --->  3->2->1->null

@@ -1,8 +1,9 @@
 /* Created by Fitz on 2017/3/15 */
+import util.ListNode;
 
-public class AddTwoNum {
+public class _2AddTwoNum {
     public static void main(String[] args) {
-        AddTwoNum addTwoNum = new AddTwoNum();
+        _2AddTwoNum addTwoNum2 = new _2AddTwoNum();
         ListNode listNode_1_0 = new ListNode(3);
         ListNode listNode_1_1 = new ListNode(5);
         ListNode listNode_1_2 = new ListNode(7);
@@ -15,7 +16,7 @@ public class AddTwoNum {
         listNode_2_0.next = listNode_2_1;
         listNode_2_1.next = listNode_2_2;
 
-        ListNode listNodeResult = addTwoNum.solution(listNode_1_0, listNode_2_0);
+        ListNode listNodeResult = addTwoNum2.solution(listNode_1_0, listNode_2_0);
     }
 
     public ListNode solution(ListNode l1, ListNode l2) {
@@ -39,11 +40,3 @@ public class AddTwoNum {
     }
 }
 
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode(int x) {
-        val = x;
-    }
-}
