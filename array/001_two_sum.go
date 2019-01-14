@@ -16,12 +16,10 @@ func TwoSum1(nums []int, target int) []int {
 func TwoSum2(nums []int, target int) []int {
 	m := make(map[int]int)
 	for i, value := range nums {
-		if j, ok := m[target - value]; ok && i != j {
+		if j, ok := m[target-value]; ok && i != j {
 			return []int{i, j}
 		}
 		m[value] = i
 	}
 	return nil
 }
-
-
