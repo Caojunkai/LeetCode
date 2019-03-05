@@ -27,8 +27,6 @@
  *     Next *ListNode
  * }
  */
-package main
-
 func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 	if l1 == nil {
 		return l2
