@@ -68,28 +68,33 @@
  */
 func myAtoi(str string) int {
 	start, first := true, true
-	ret, max, min := 0, 1<<31 -1, -1<<31
-	for _, v := range str {
-		if start && v == ' ' {
-			continue
-		}
+	ret, max, min := 0, 1<<31-1, -1<<31
+	for i := 0; i < len(str); i++ {
+		v := str[i]
 		if start {
+			if v == ' ' || v == '"' {
+				continue
+			}
 			if v == '-' || v == '+' {
 				if v == '-' {
 					ret = ret * -1
 				}
 				start = false
 				continue
-			} else {
-				return ret
 			}
+			return ret
 		}
 		if v >= '0' && v <= '9' {
 			if first && v == '0' {
 				return ret
 			}
-			if ret > max/10 || (ret == max/10 && v > '7')
-			ret = ret*10 + (v - 48)
+			if ret > max/10 || (ret == max/10 && v > '7') {
+				return max
+			}
+			if ret < min/10 || (ret == min/10 && v > '8') {
+				return min
+			}
+			ret = ret*10 + (int(v) - 48)
 			first = false
 			continue
 		}
