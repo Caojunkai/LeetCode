@@ -5,6 +5,7 @@
  */
 package leetcodecn
 
+//nolint
 // @lc code=start
 func hasGroupsSizeX(deck []int) bool {
 	length := len(deck)
