@@ -1,3 +1,3 @@
 module github.com/fitzix/leetcode
 
-go 1.12
+go 1.14
