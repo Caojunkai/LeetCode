@@ -7,6 +7,30 @@ package leetcodecn
 
 // @lc code=start
 func hasGroupsSizeX(deck []int) bool {
+	length := len(deck)
+	if length < 2 {
+		return false
+	}
+	count := make(map[int]int)
+	for _, v := range deck {
+		count[v]++
+	}
+	var g int
+	for _, v := range count {
+		if g == 0 {
+			g = v
+			continue
+		}
+		g = gcd(g, v)
+	}
+	return g >= 2
+}
+
+func gcd(x, y int) int {
+	for y != 0 {
+		x, y = y, x%y
+	}
+	return x
 }
 
 // @lc code=end
