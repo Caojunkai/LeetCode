@@ -3,9 +3,9 @@
  *
  * [914] 卡牌分组
  */
-package leetcodecn
+package leetcode
 
-//nolint
+// nolint
 // @lc code=start
 func hasGroupsSizeX(deck []int) bool {
 	length := len(deck)

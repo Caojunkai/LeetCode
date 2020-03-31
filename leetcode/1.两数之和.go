@@ -3,9 +3,9 @@
  *
  * [1] 两数之和
  */
-package leetcodecn
+package leetcode
 
-//nolint
+// nolint
 // @lc code=start
 func twoSum(nums []int, target int) []int {
 

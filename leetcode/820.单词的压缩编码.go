@@ -3,9 +3,9 @@
  *
  * [820] 单词的压缩编码
  */
-package leetcodecn
+package leetcode
 
-//nolint
+// nolint
 // @lc code=start
 func minimumLengthEncoding(words []string) int {
 	hash := make(map[string]int, len(words))
