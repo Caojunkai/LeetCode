@@ -82,3 +82,24 @@ func MergeSort(nums []int, left, right int) {
 		nums[left+i] = temp[i]
 	}
 }
+
+func QuickSort(nums []int, left, right int) {
+	if left >= right {
+		return
+	}
+	i := left + 1
+	j := right
+	for i <= j {
+		if nums[i] > nums[left] {
+			swap(nums, i, j)
+			j--
+		} else {
+			i++
+		}
+	}
+	// 在 i=j 的情况 如果这个数比nums[left]大 则它在边界值的右侧 边界索引需要-1, 如果比边界值小, 则执行了i++ 边界索引也许-1
+	i--
+	swap(nums, left, i)
+	QuickSort(nums, left, i-1)
+	QuickSort(nums, i+1, right)
+}

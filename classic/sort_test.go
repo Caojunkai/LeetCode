@@ -65,3 +65,19 @@ func BenchmarkMergeSort(b *testing.B) {
 		MergeSort(nums, 0, len(nums)-1)
 	}
 }
+
+func TestQuickSort(t *testing.T) {
+	QuickSort(nums, 0, len(nums)-1)
+	t.Logf("%v", nums)
+	for i := 0; i < len(nums)-1; i++ {
+		if nums[i] > nums[i+1] {
+			t.Fail()
+		}
+	}
+}
+
+func BenchmarkQuickSort(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		QuickSort(nums, 0, len(nums)-1)
+	}
+}
