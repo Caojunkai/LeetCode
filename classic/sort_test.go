@@ -50,3 +50,18 @@ func BenchmarkInsertSort(b *testing.B) {
 		InsertSort(nums)
 	}
 }
+
+func TestMergeSort(t *testing.T) {
+	MergeSort(nums, 0, len(nums)-1)
+	for i := 0; i < len(nums)-1; i++ {
+		if nums[i] > nums[i+1] {
+			t.Fail()
+		}
+	}
+}
+
+func BenchmarkMergeSort(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		MergeSort(nums, 0, len(nums)-1)
+	}
+}
