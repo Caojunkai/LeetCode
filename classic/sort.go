@@ -27,3 +27,13 @@ func SelectSort(nums []int) {
 		swap(nums, maxIndex, i)
 	}
 }
+
+func InsertSort(nums []int) {
+	for i := 0; i < len(nums); i++ {
+		j := i
+		for ; j > 0 && nums[j] < nums[j-1]; {
+			swap(nums, j, j-1)
+			j--
+		}
+	}
+}

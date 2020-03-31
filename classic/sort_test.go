@@ -23,7 +23,6 @@ func BenchmarkBubbleSort(b *testing.B) {
 
 func TestSelectSort(t *testing.T) {
 	SelectSort(nums)
-	t.Logf("%v", nums)
 	for i := 0; i < len(nums)-1; i++ {
 		if nums[i] > nums[i+1] {
 			t.Fail()
@@ -34,5 +33,20 @@ func TestSelectSort(t *testing.T) {
 func BenchmarkSelectSort(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		SelectSort(nums)
+	}
+}
+
+func TestInsertSort(t *testing.T) {
+	InsertSort(nums)
+	for i := 0; i < len(nums)-1; i++ {
+		if nums[i] > nums[i+1] {
+			t.Fail()
+		}
+	}
+}
+
+func BenchmarkInsertSort(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		InsertSort(nums)
 	}
 }
