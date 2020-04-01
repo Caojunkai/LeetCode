@@ -15,14 +15,14 @@ func NewBstTree(v int) *TreeNode {
 	}
 }
 
-func (t *TreeNode) Inser(num int) {
+func (t *TreeNode) Insert(num int) {
 	if num < t.val {
 		if t.left == nil {
 			t.left = &TreeNode{
 				val: num,
 			}
 		} else {
-			t.left.Inser(num)
+			t.left.Insert(num)
 		}
 		return
 	}
@@ -33,7 +33,7 @@ func (t *TreeNode) Inser(num int) {
 				val: num,
 			}
 		} else {
-			t.right.Inser(num)
+			t.right.Insert(num)
 		}
 		return
 	}
