@@ -16,7 +16,9 @@ func QuickSort(nums []int, left, right int) {
 	if left >= right {
 		return
 	}
+
 	i, j := left+1, right
+
 	for i <= j {
 		if nums[i] > nums[left] {
 			nums[i], nums[j] = nums[j], nums[i]
@@ -26,7 +28,7 @@ func QuickSort(nums []int, left, right int) {
 		}
 	}
 	i--
-	nums[left], nums[i] = nums[i], nums[left]
+	nums[i], nums[left] = nums[left], nums[i]
 	QuickSort(nums, left, i-1)
 	QuickSort(nums, i+1, right)
 }
