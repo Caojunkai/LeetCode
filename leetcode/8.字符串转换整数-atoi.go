@@ -5,6 +5,7 @@
  */
 package leetcode
 
+// nolint
 // @lc code=start
 func myAtoi(str string) int {
 	s := 0
