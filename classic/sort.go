@@ -30,8 +30,7 @@ func SelectSort(nums []int) {
 
 func InsertSort(nums []int) {
 	for i := 0; i < len(nums); i++ {
-		j := i
-		for j > 0 && nums[j] < nums[j-1] {
+		for j := i; j > 0 && nums[j] < nums[j-1] ;{
 			swap(nums, j, j-1)
 			j--
 		}
@@ -87,19 +86,25 @@ func QuickSort(nums []int, left, right int) {
 	if left >= right {
 		return
 	}
-	i := left + 1
-	j := right
+	i, j := left+1, right
 	for i <= j {
-		if nums[i] > nums[left] {
-			swap(nums, i, j)
+		if nums[i] < nums[left] {
+			nums[i], nums[j] = nums[j], nums[i]
 			j--
 		} else {
 			i++
 		}
 	}
-	// 在 i=j 的情况 如果这个数比nums[left]大 则它在边界值的右侧 边界索引需要-1, 如果比边界值小, 则执行了i++ 边界索引也许-1
 	i--
-	swap(nums, left, i)
+	nums[i], nums[left] = nums[left], nums[i]
 	QuickSort(nums, left, i-1)
 	QuickSort(nums, i+1, right)
+}
+
+func Insert(nums []int) {
+	for i:=0; i < len(nums) - 1; i++ {
+		for j := i; j > 0 && nums[j] < nums[j - 1]; j-- {
+			nums[j-1], nums[j] = nums[j], nums[j - 1]
+		}
+	}
 }
