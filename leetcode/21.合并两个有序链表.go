@@ -3,6 +3,7 @@
  *
  * [21] 合并两个有序链表
  */
+package leetcode
 
 // @lc code=start
 /**
@@ -37,5 +38,5 @@ func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 
 	return head.Next
 }
-// @lc code=end
 
+// @lc code=end
