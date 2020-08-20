@@ -30,7 +30,7 @@ func SelectSort(nums []int) {
 
 func InsertSort(nums []int) {
 	for i := 0; i < len(nums); i++ {
-		for j := i; j > 0 && nums[j] < nums[j-1] ;{
+		for j := i; j > 0 && nums[j] < nums[j-1]; {
 			swap(nums, j, j-1)
 			j--
 		}
@@ -86,25 +86,26 @@ func QuickSort(nums []int, left, right int) {
 	if left >= right {
 		return
 	}
-	i, j := left+1, right
-	for i <= j {
-		if nums[i] < nums[left] {
-			nums[i], nums[j] = nums[j], nums[i]
+	i, j := left, right
+	for i < j {
+		for nums[j] >= nums[left] && i < j {
 			j--
-		} else {
+		}
+
+		for nums[i] <= nums[left] && i < j {
 			i++
 		}
+		nums[i], nums[j] = nums[j], nums[i]
 	}
-	i--
-	nums[i], nums[left] = nums[left], nums[i]
+	nums[left], nums[i] = nums[i], nums[left]
 	QuickSort(nums, left, i-1)
 	QuickSort(nums, i+1, right)
 }
 
 func Insert(nums []int) {
-	for i:=0; i < len(nums) - 1; i++ {
-		for j := i; j > 0 && nums[j] < nums[j - 1]; j-- {
-			nums[j-1], nums[j] = nums[j], nums[j - 1]
+	for i := 0; i < len(nums)-1; i++ {
+		for j := i; j > 0 && nums[j] < nums[j-1]; j-- {
+			nums[j-1], nums[j] = nums[j], nums[j-1]
 		}
 	}
 }

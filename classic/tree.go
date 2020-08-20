@@ -1,53 +1,44 @@
 package classic
 
 type TreeNode struct {
-	val   string
-	left  *TreeNode
-	right *TreeNode
-	count int
+	Val   string
+	Left  *TreeNode
+	Right *TreeNode
+	Count int
 }
 
-// func NewBstTree(v int) *TreeNode {
-// 	return &TreeNode{
-// 		val: v,
-// 	}
-// }
+func preorderTravel(root *TreeNode) {
+	if root == nil {
+		return
+	}
+	println(root.Val)
+	preorderTravel(root.Left)
+	preorderTravel(root.Right)
+}
 
-// func (t *TreeNode) Insert(num int) {
-// 	if num < t.val {
-// 		if t.left == nil {
-// 			t.left = &TreeNode{
-// 				val: num,
-// 			}
-// 		} else {
-// 			t.left.Insert(num)
-// 		}
-// 		return
-// 	}
-//
-// 	if num > t.val {
-// 		if t.right == nil {
-// 			t.right = &TreeNode{
-// 				val: num,
-// 			}
-// 		} else {
-// 			t.right.Insert(num)
-// 		}
-// 		return
-// 	}
-//
-// 	if num == t.val {
-// 		t.count++
-// 	}
-//
-// }
-//
-// func (t *TreeNode) Dfs() {
-// 	log.Print(t.val)
-// 	if t.left != nil {
-// 		t.left.Dfs()
-// 	}
-// 	if t.right != nil {
-// 		t.right.Dfs()
-// 	}
-// }
+func inorderTraversal(root *TreeNode) {
+	if root == nil {
+		return
+	}
+	inorderTraversal(root.Left)
+	println(root.Val)
+	inorderTraversal(root.Right)
+}
+
+func postorderTraversal(root *TreeNode) {
+	if root == nil {
+		return
+	}
+	postorderTraversal(root.Left)
+	postorderTraversal(root.Right)
+	println(root.Val)
+}
+
+func dfs(root *TreeNode) {
+	if root == nil {
+		return
+	}
+	println(root.Val)
+	dfs(root.Left)
+	dfs(root.Right)
+}

@@ -1,9 +1,14 @@
 package classic
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 var (
-	nums = []int{1, 3, 22, 12, 43, 6, 2, 12, 345, 2, -10}
+	nums     = []int{1, 3, 22, 12, 43, 6, 2, 12, 345, 2, -10}
+	expected = []int{-10, 1, 2, 2, 3, 6, 12, 12, 22, 43, 345}
 )
 
 func TestBubbleSort(t *testing.T) {
@@ -67,13 +72,10 @@ func BenchmarkMergeSort(b *testing.B) {
 }
 
 func TestQuickSort(t *testing.T) {
-	QuickSort(nums, 0, len(nums)-1)
-	t.Logf("%v", nums)
-	for i := 0; i < len(nums)-1; i++ {
-		if nums[i] > nums[i+1] {
-			t.Fail()
-		}
-	}
+	num := make([]int, len(nums))
+	copy(num, nums)
+	QuickSort(num, 0, len(num)-1)
+	assert.Equal(t, expected, num)
 }
 
 func BenchmarkQuickSort(b *testing.B) {

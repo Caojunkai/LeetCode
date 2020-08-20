@@ -3,13 +3,13 @@ package classic
 import "log"
 
 func CreateTree() TreeNode {
-	nodeG := TreeNode{val: "g", left: nil, right: nil}
-	nodeF := TreeNode{val: "f", left: &nodeG, right: nil}
-	nodeE := TreeNode{val: "e", left: nil, right: nil}
-	nodeD := TreeNode{val: "d", left: &nodeE, right: nil}
-	nodeC := TreeNode{val: "c", left: nil, right: nil}
-	nodeB := TreeNode{val: "b", left: &nodeD, right: &nodeF}
-	nodeA := TreeNode{val: "a", left: &nodeB, right: &nodeC}
+	nodeG := TreeNode{Val: "g", Left: nil, Right: nil}
+	nodeF := TreeNode{Val: "f", Left: &nodeG, Right: nil}
+	nodeE := TreeNode{Val: "e", Left: nil, Right: nil}
+	nodeD := TreeNode{Val: "d", Left: &nodeE, Right: nil}
+	nodeC := TreeNode{Val: "c", Left: nil, Right: nil}
+	nodeB := TreeNode{Val: "b", Left: &nodeD, Right: &nodeF}
+	nodeA := TreeNode{Val: "a", Left: &nodeB, Right: &nodeC}
 	return nodeA
 }
 
@@ -17,48 +17,48 @@ func PreOrderTraversal(root *TreeNode) {
 	if root == nil {
 		return
 	}
-	print(root.val, "---> ")
-	PreOrderTraversal(root.left)
-	PreOrderTraversal(root.right)
+	print(root.Val, "---> ")
+	PreOrderTraversal(root.Left)
+	PreOrderTraversal(root.Right)
 }
 
 func InOrderTraversal(root *TreeNode) {
 	if root == nil {
 		return
 	}
-	InOrderTraversal(root.left)
-	print(root.val, "---> ")
-	InOrderTraversal(root.right)
+	InOrderTraversal(root.Left)
+	print(root.Val, "---> ")
+	InOrderTraversal(root.Right)
 }
 
 func PostOrderTraversal(root *TreeNode) {
 	if root == nil {
 		return
 	}
-	PostOrderTraversal(root.left)
-	PostOrderTraversal(root.right)
-	print(root.val, "---> ")
+	PostOrderTraversal(root.Left)
+	PostOrderTraversal(root.Right)
+	print(root.Val, "---> ")
 }
 
 func Bfs(root *TreeNode) {
 	if root == nil {
 		return
 	}
-	log.Println(root.val)
-	Bfs(root.left)
-	Bfs(root.right)
+	log.Println(root.Val)
+	Bfs(root.Left)
+	Bfs(root.Right)
 }
 
 func Dfs(root *TreeNode) {
 	if root == nil {
 		return
 	}
-	log.Println(root.val)
-	if root.left != nil {
-		Dfs(root.left)
+	log.Println(root.Val)
+	if root.Left != nil {
+		Dfs(root.Left)
 	}
 
-	if root.right != nil {
-		Dfs(root.right)
+	if root.Right != nil {
+		Dfs(root.Right)
 	}
 }
