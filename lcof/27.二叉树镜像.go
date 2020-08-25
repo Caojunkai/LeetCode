@@ -35,14 +35,7 @@ func mirrorTree(root *TreeNode) *TreeNode {
 		return nil
 	}
 
-	// swap
-	left := root.Left
-	root.Left = root.Right
-	root.Right = left
-
-	//
-	mirrorTree(root.Left)
-	mirrorTree(root.Right)
+	root.Left, root.Right = mirrorTree(root.Right), mirrorTree(root.Left)
 
 	return root
 }
