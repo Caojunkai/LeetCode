@@ -38,3 +38,29 @@ func findNumberIn2DArray(matrix [][]int, target int) bool {
 	}
 	return false
 }
+
+func FindIndexIn2Array(matrix [][]int, target int) []int {
+	rows := len(matrix)
+	if rows == 0 {
+		return nil
+	}
+
+	cols := len(matrix[0])
+	if cols == 0 {
+		return nil
+	}
+
+	i, j := 0, cols-1
+
+	for i < rows && j >= 0 {
+		if temp := matrix[i][j]; temp == target {
+			return []int{i, j}
+		} else if temp > target {
+			j--
+		} else {
+			i++
+		}
+	}
+
+	return nil
+}

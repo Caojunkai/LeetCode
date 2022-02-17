@@ -5,12 +5,6 @@
  */
 package leetcode
 
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
-
 // @lc code=start
 
 func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
