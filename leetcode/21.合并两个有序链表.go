@@ -13,27 +13,36 @@ package leetcode
  *     Next *ListNode
  * }
  */
-func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
-	head := new(ListNode)
-	p := head
+func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
+	if list1 == nil {
+		return list2
+	}
+
+	if list2 == nil {
+		return list1
+	}
+
+	resp := new(ListNode)
+
+	l1, l2, head := list1, list2, resp
 
 	for l1 != nil && l2 != nil {
-		if l1.Val <= l2.Val {
-			p.Next = l1
-			l1 = l1.Next
-		} else {
-			p.Next = l2
+		if l1.Val >= l2.Val {
+			resp.Next = l2
 			l2 = l2.Next
+		} else {
+			resp.Next = l1
+			l1 = l1.Next
 		}
-		p = p.Next
+		resp = resp.Next
 	}
 
 	if l1 == nil {
-		p.Next = l2
+		resp.Next = l2
 	}
 
 	if l2 == nil {
-		p.Next = l1
+		resp.Next = l1
 	}
 
 	return head.Next

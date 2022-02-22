@@ -1,10 +1,9 @@
-package leetcode
-
 /*
  * @lc app=leetcode.cn id=124 lang=golang
  *
  * [124] 二叉树中的最大路径和
  */
+package leetcode
 
 // @lc code=start
 /**
@@ -15,25 +14,40 @@ package leetcode
  *     Right *TreeNode
  * }
  */
-const INT_MIN = 1
+
+var maxPath int
 
 func maxPathSum(root *TreeNode) int {
+	maxPath = -1 << 31
+	getMaxPath(root)
+	return maxPath
+}
+
+func getMaxPath(root *TreeNode) int {
 	if root == nil {
 		return 0
 	}
-	left := max(0, maxPathSum(root.Left))
-	right := max(0, maxPathSum(root.Right))
 
-	println(left, right)
+	left := max(getMaxPath(root.Left), 0)
+	right := max(getMaxPath(root.Right), 0)
 
-	return 0
+	maxPath = max(left+right+root.Val, maxPath)
+
+	return root.Val + max(left, right)
 }
 
-func max(left, right int) int {
-	if left > right {
-		return left
+func max(data ...int) int {
+	if len(data) == 0 {
+		return -1 << 31
 	}
-	return right
+	resp := data[0]
+	for _, v := range data {
+		if resp < v {
+			resp = v
+		}
+	}
+
+	return resp
 }
 
 // @lc code=end

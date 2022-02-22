@@ -3,6 +3,7 @@
  *
  * [7] 整数反转
  */
+package leetcode
 
 // @lc code=start
 func reverse(x int) int {
@@ -23,4 +24,3 @@ func reverse(x int) int {
 }
 
 // @lc code=end
-

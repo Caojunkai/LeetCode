@@ -7,32 +7,30 @@ package leetcode
 
 // @lc code=start
 func merge(nums1 []int, m int, nums2 []int, n int) {
-	ret := make([]int, len(nums1))
-	var i, j, k int
+
+	resp := make([]int, 0, m+n)
+
+	i, j := 0, 0
+
 	for i < m && j < n {
-		if nums1[i] <= nums2[j] {
-			ret[k] = nums1[i]
-			i++
-		} else {
-			ret[k] = nums2[j]
+		if nums1[i] >= nums2[j] {
+			resp = append(resp, nums2[j])
 			j++
-		}
-		k++
-	}
-	if i == m {
-		for _, v := range nums2[j:m] {
-			ret[k] = v
-			k++
+		} else {
+			resp = append(resp, nums1[i])
+			i++
 		}
 	}
 
-	if j == n {
-		for _, v := range nums1[i:n] {
-			ret[k] = v
-			k++
-		}
+	if i >= m {
+		resp = append(resp, nums2[j:n]...)
 	}
-	nums1 = ret
+
+	if j >= n {
+		resp = append(resp, nums1[i:m]...)
+	}
+
+	copy(nums1, resp)
 }
 
 // @lc code=end

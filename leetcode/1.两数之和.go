@@ -5,35 +5,17 @@
  */
 package leetcode
 
-// nolint
 // @lc code=start
 func twoSum(nums []int, target int) []int {
-
-	// solution-1
-	// for i, v := range nums {
-	// 	for j := i + 1; j < length; j++ {
-	// 		if nums[j]+v == target {
-	// 			return []int{
-	// 				i,
-	// 				j,
-	// 			}
-	// 		}
-	// 	}
-	// }
-	// return []int{}
-
-	// solution-2
-	hash := make(map[int]int)
-	for i, v := range nums {
-		if j, ok := hash[target-v]; ok {
-			return []int{
-				i,
-				j,
-			}
+	m := make(map[int]int)
+	for k, v := range nums {
+		if index, ok := m[target-v]; ok {
+			return []int{index, k}
 		}
-		hash[v] = i
+		m[v] = k
 	}
-	return []int{}
+
+	return nil
 }
 
 // @lc code=end
