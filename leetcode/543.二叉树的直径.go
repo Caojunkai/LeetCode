@@ -30,13 +30,13 @@ func maxTravelLength(root *TreeNode) int {
 	left := maxTravelLength(root.Left)
 	right := maxTravelLength(root.Right)
 
-	maxTravel = max(maxTravel, left+right)
+	maxTravel = max543(maxTravel, left+right)
 
-	return max(left, right) + 1
+	return max543(left, right) + 1
 
 }
 
-func max(x, y int) int {
+func max543(x, y int) int {
 	if x > y {
 		return x
 	}

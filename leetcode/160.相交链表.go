@@ -14,27 +14,27 @@ package leetcode
  * }
  */
 func getIntersectionNode(headA, headB *ListNode) *ListNode {
-
 	if headA == nil || headB == nil {
 		return nil
 	}
 
 	l1, l2 := headA, headB
+	l1Done, l2Done := false, false
 
 	for l1 != l2 {
-		if next := l1.Next; next != nil {
-			l1 = next
-		} else {
+		l1 = l1.Next
+		if l1 == nil && !l1Done {
+			l1Done = true
 			l1 = headB
 		}
 
-		if next := l2.Next; next != nil {
-			l2 = next
-		} else {
+		l2 = l2.Next
+		if l2 == nil && !l2Done {
+			l2Done = true
 			l2 = headA
 		}
-	}
 
+	}
 	return l1
 }
 

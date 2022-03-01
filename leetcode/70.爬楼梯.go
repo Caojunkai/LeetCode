@@ -3,6 +3,7 @@
  *
  * [70] 爬楼梯
  */
+package leetcode
 
 // @lc code=start
 func climbStairs(n int) int {
@@ -21,4 +22,3 @@ func climbStairs(n int) int {
 }
 
 // @lc code=end
-

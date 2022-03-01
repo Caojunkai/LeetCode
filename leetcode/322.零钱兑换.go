@@ -7,26 +7,34 @@ package leetcode
 
 // @lc code=start
 func coinChange(coins []int, amount int) int {
-	l := []int{0}
+	f := make([]int, amount+1)
+
 	for i := 1; i <= amount; i++ {
-		var temp []int
-		for _, v := range coins {
-			if i >= v {
-				temp = append(temp, l[i-v]+1)
+		f[i] = -1
+		for _, coin := range coins {
+			if i >= coin && f[i-coin] != -1 {
+				if f[i] != -1 {
+					f[i] = min322(f[i], f[i-coin])
+				} else {
+					f[i] = f[i-coin]
+				}
 			}
 		}
-		l = append(l, MinSlice(temp))
-	}
-	return l[amount]
-}
 
-func MinSlice(nums []int) (rsp int) {
-	for k, v := range nums {
-		if k == 0 || v < rsp {
-			rsp = v
+		if f[i] != -1 {
+			f[i] += 1
 		}
 	}
-	return
+
+	return f[amount]
+}
+
+func min322(x, y int) int {
+	if x < y {
+		return x
+	}
+
+	return y
 }
 
 // @lc code=end

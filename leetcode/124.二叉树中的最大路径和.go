@@ -28,15 +28,15 @@ func getMaxPath(root *TreeNode) int {
 		return 0
 	}
 
-	left := max(getMaxPath(root.Left), 0)
-	right := max(getMaxPath(root.Right), 0)
+	left := max124(getMaxPath(root.Left), 0)
+	right := max124(getMaxPath(root.Right), 0)
 
-	maxPath = max(left+right+root.Val, maxPath)
+	maxPath = max124(left+right+root.Val, maxPath)
 
-	return root.Val + max(left, right)
+	return root.Val + max124(left, right)
 }
 
-func max(data ...int) int {
+func max124(data ...int) int {
 	if len(data) == 0 {
 		return -1 << 31
 	}
